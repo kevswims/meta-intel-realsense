@@ -12,8 +12,8 @@ RDEPENDS_${PN}-examples += "${PN}"
 RDEPENDS_${PN}-graphical-examples += "${PN} libgl-mesa"
 
 EXTRA_OECMAKE = " \
-	-DBUILD_SHARED_LIBS:BOOL=ON -DBUILD_UNIT_TESTS:BOOL=OFF -DBUILD_EXAMPLES:BOOL=ON -DUSE_SYSTEM_LIBUSB:BOOL=ON \
-	-DBUILD_GRAPHICAL_EXAMPLES:BOOL=${@bb.utils.contains('DISTRO_FEATURES', 'x11 opengl', 'ON', 'OFF', d)} \
+	-DBUILD_SHARED_LIBS:BOOL=ON -DBUILD_UNIT_TESTS:BOOL=OFF -DBUILD_EXAMPLES:BOOL=OFF -DUSE_SYSTEM_LIBUSB:BOOL=ON \
+	-DBUILD_GRAPHICAL_EXAMPLES:BOOL=OFF -DBUILD_WITH_TM2=OFF -DBUILD_TOOLS:BOOL=ON \
 "
 
 PACKAGECONFIG ??= ""
@@ -23,8 +23,6 @@ PACKAGES += "\
 	${PN}-tools \
 	${PN}-debug-tools \
 "
-
-PACKAGES += "${@bb.utils.contains('DISTRO_FEATURES', 'x11 opengl', '${PN}-graphical-examples', '', d)}"
 
 do_install_append() {
 	install -d "${D}${sysconfdir}/udev/rules.d"
