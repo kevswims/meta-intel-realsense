@@ -23,6 +23,7 @@ RDEPENDS_${PN}-graphical-examples += "\
 
 SRC_URI += "\
     file://Remove-R200-fix-from-udev-rules.patch \
+    file://0001-Enable-O2-optimizations-and-simd-instructions.patch \
 "
 
 PR = "r0"
