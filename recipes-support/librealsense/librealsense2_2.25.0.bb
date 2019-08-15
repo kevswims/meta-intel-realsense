@@ -10,6 +10,7 @@ DEPENDS = "\
 
 DEPENDS += "${@bb.utils.contains('DISTRO_FEATURES', 'x11 opengl', 'libpng libglu glfw gtk+3', '', d)}"
 
+SRCREV = "v2.25.0"
 RDEPENDS_${PN} = "\
     bash \
 "
@@ -25,8 +26,6 @@ SRC_URI += "\
     file://Remove-R200-fix-from-udev-rules.patch \
     file://0001-Enable-O2-optimizations-and-simd-instructions.patch \
 "
-
-PR = "r0"
 
 EXTRA_OECMAKE += " \
     -DBUILD_SHARED_LIBS:BOOL=ON \
@@ -86,12 +85,14 @@ FILES_${PN}-graphical-examples = "\
     ${bindir}/rs-sensor-control \
     ${bindir}/rs-software-device \
     ${bindir}/rs-trajectory \
+    ${bindir}/rs-tracking-and-depth \
 "
 
 FILES_${PN}-tools = "\
     ${bindir}/realsense-viewer \
     ${bindir}/rs-convert \
     ${bindir}/rs-depth-quality \
+    ${bindir}/rs-fw-update \
 "
 
 FILES_${PN}-debug-tools = "\
