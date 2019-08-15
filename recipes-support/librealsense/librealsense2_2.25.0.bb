@@ -22,10 +22,12 @@ RDEPENDS_${PN}-graphical-examples += "\
     libgl-mesa \
 "
 
-SRC_URI += "\
-    file://Remove-R200-fix-from-udev-rules.patch \
-    file://0001-Enable-O2-optimizations-and-simd-instructions.patch \
-"
+SRC_URI = "git://github.com/IntelRealSense/librealsense.git;tag=v${PV} \
+           file://Fix-arch-detection-on-linux.patch \
+           file://Remove-R200-fix-from-udev-rules.patch \
+           file://0001-Enable-O2-optimizations-and-simd-instructions.patch \
+           file://0001-Add-crc-and-crypto-instructions-to-optimizations.patch \
+           "
 
 EXTRA_OECMAKE += " \
     -DBUILD_SHARED_LIBS:BOOL=ON \
