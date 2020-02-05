@@ -65,6 +65,7 @@ FILES_${PN}-examples = "\
 FILES_${PN}-graphical-examples = "\
     ${bindir}/rs-align \
     ${bindir}/rs-align-advanced \
+    ${bindir}/rs-ar-advanced \
     ${bindir}/rs-ar-basic \
     ${bindir}/rs-callback \
     ${bindir}/rs-capture \
